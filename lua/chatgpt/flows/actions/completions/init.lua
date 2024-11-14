@@ -13,7 +13,7 @@ local Config = require("chatgpt.config")
 --   "prompt": "Insert a roxygen skeleton to document this R function:\n\n",
 --   "suffix": " code ",
 --   "temperature": 0.7,
---   "max_tokens": 565,
+--   "max_completion_tokens": 565,
 --   "top_p": 1,
 --   "frequency_penalty": 0,
 --   "presence_penalty": 0
