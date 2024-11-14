@@ -48,10 +48,10 @@ local build_edit_messages = function(input, instructions, use_functions_for_edit
       "Apply the changes requested by the user to the code. Output ONLY the changed code. DO NOT wrap the code in a formatting block. DO NOT provide other text or explanation."
   end
   local messages = {
-    {
-      role = "system",
-      content = system_message_content,
-    },
+    --{
+    --  role = "system",
+    --  content = system_message_content,
+    --},
     {
       role = "user",
       content = input,
