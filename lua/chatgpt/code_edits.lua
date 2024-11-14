@@ -58,7 +58,8 @@ local build_edit_messages = function(input, instructions, use_functions_for_edit
     },
     {
       role = "user",
-      content = instructions,
+      content = instructions
+        .. "Output ONLY the changed code. DO NOT wrap the code in a formatting block. DO NOT provide other text or explanation.",
     },
   }
   return messages
