@@ -176,6 +176,7 @@ function M.defaults()
       temperature = 0,
       top_p = 1,
       n = 1,
+      stream = true,
     },
     openai_edit_params = {
       model = "gpt-3.5-turbo",
@@ -185,6 +186,7 @@ function M.defaults()
       temperature = 0,
       top_p = 1,
       n = 1,
+      stream = false,
     },
     use_openai_functions_for_edits = false,
     ignore_default_actions_path = false,

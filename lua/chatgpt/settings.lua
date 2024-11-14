@@ -18,19 +18,24 @@ local integer_validator = function(min, max)
   end
 end
 
-local model_validator = function(value)
+local string_validator = function(value)
   return value
 end
 
+local bool_validator = function(value)
+  return value == "true"
+end
+
 local params_order =
-  { "model", "frequency_penalty", "presence_penalty", "max_completion_tokens", "temperature", "top_p" }
+  { "model", "frequency_penalty", "presence_penalty", "max_completion_tokens", "temperature", "top_p", "stream" }
 local params_validators = {
-  model = model_validator,
+  model = string_validator,
   frequency_penalty = float_validator(-2, 2),
   presence_penalty = float_validator(-2, 2),
   max_completion_tokens = integer_validator(0, 4096),
   temperature = float_validator(0, 1),
   top_p = float_validator(0, 1),
+  stream = bool_validator,
 }
 
 local function write_virtual_text(bufnr, ns, line, chunks, mode)
@@ -80,7 +85,7 @@ M.get_settings_panel = function(type, default_params)
     if M.params[key] ~= nil then
       local vt = {
         { Config.options.settings_window.setting_sign .. key .. ": ", "ErrorMsg" },
-        { M.params[key] .. "", Config.options.highlights.params_value },
+        { tostring(M.params[key]) .. "", Config.options.highlights.params_value },
       }
       table.insert(details, vt)
     end
